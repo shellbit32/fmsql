@@ -1,0 +1,2 @@
+SELECT teste FROM dados
+WHERE teste > 2
