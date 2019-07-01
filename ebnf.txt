@@ -1,0 +1,7 @@
+program = select;
+select = "SELECT", name, "FROM", where?
+where = "WHERE" condition
+condition = name condition-operator constant
+//expression = name | constant
+name = [a-z]+
+constant = [0-9]+
