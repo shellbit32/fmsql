@@ -45,6 +45,12 @@ class Lexer():
         #Maior
         self.lexer.add('GRT',r'>')
 
+        #Menor
+        self.lexer.add('LSS', r'<')
+
+        #Igual
+        self.lexer.add('EQ', r'=')
+
         #Numero
         self.lexer.add('NUM',r'\d')
 

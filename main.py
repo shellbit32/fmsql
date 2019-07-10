@@ -10,7 +10,7 @@ from parser import Parser
 
 text_input = """
 select col from base
-where col > 2
+where col < 2
 boxplot col_x, col_y
 """
 

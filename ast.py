@@ -25,6 +25,14 @@ class Grt(OpBinaria):
     def eval(self):
         return str(self.left.eval > self.right.eval)
 
+class Lss(OpBinaria):
+    def eval(self):
+        return str(self.left.eval < self.right.eval)
+
+class Eq(OpBinaria):
+    def eval(self):
+        return str(self.left.eval == self.right.eval)
+
 class Select():
 
     #Na versão v0.6 , pode tirar o * do args pra conseguir mostrar(só uma
