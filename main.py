@@ -6,6 +6,7 @@
 #Combinando os componentes do compilador neste arquivo
 
 from lexer import Lexer
+from parser import Parser
 
 text_input = """
 select col from base
@@ -16,5 +17,10 @@ boxplot col_x, col_y
 lexer = Lexer().get_lexer()
 tokens = lexer.lex(text_input)
 
-for token in tokens:
-    print(token)
+#for token in tokens:
+#    print(token)
+
+pg = Parser()
+pg.parse()
+parser = pg.get_parser()
+parser.parse(tokens).eval()

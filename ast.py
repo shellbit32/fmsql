@@ -14,7 +14,7 @@ class Num():
         self.value = value
 
     def eval(self):
-        return int(self.value)
+        return str(int(self.value))
 
 class OpBinaria():
     def __init__(self, left, right):
@@ -31,7 +31,7 @@ class Select():
         self.cols = args
 
     def eval(self):
-        return 'Selecionadas colunas ' + str(cols)
+        return 'Selecionadas colunas ' + str(self.cols)
 
 class From():
 
@@ -39,23 +39,23 @@ class From():
         self.origem = origem
 
     def eval(self):
-        return 'da base ' + str(origem)
+        return 'da base ' + str(self.origem)
 
 class Where():
-    
+
     def __init__(self, col, op, val):
         self.col = col
         self.op = op
         self.val = val
 
     def eval(self):
-        return ' onde ' + col + op + ' ' + str(val)
+        return ' onde ' + self.col + self.op + ' ' + str(self.val)
 
 class Boxplot():
 
     def __init__(self, x, y):
         self.x = x
         self.y = y
-    
+
     def eval(self):
-        return ' fazer boxplot de x: ' + x + ' e y: ' + y
+        return ' fazer boxplot de x: ' + self.x + ' e y: ' + self.y
