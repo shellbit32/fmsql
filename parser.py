@@ -4,7 +4,7 @@
 ################################################################################
 
 from rply import ParserGenerator
-from ast import Num,Grt, Select, String, Lss, Eq
+from ast import Num, Grt, Select, String, Lss, Eq, Condition
 
 #Trocar o GRT STR por GRT NUM depois quando terminar
 
@@ -35,11 +35,11 @@ class Parser():
             left = p[0]
             right = p[2]
             if p[1].gettokentype() == 'GRT':
-                return Grt(left,right)
+                return Condition(left, Grt(left,right), right.getstr())
             elif p[1].gettokentype() == 'LSS':
-                return Lss(left, right)
+                return Condition(left, Lss(left, right), right.getstr())
             elif p[1].gettokentype() == 'EQ':
-                return Eq(left, right)
+                return Condition(left, Eq(left, right), right.getstr())
             else:
                 raise ValueError('Oops, isso não é possível.')
 
@@ -51,19 +51,19 @@ class Parser():
 
         @self.pg.production('sel_col : STR')
         def sel_col(p):
-            return String(p[0])
+            return String(p[0].getstr())
 
         @self.pg.production('origem : STR')
         def origem(p):
-            return String(p[0])
+            return String(p[0].getstr())
 
         @self.pg.production('box_x : STR')
         def box_x(p):
-            return String(p[0])
+            return String(p[0].getstr())
 
         @self.pg.production('box_y : STR')
         def box_y(p):
-            return String(p[0])
+            return String(p[0].getstr())
 
         @self.pg.error
         def error_handle(token):

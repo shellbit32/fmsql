@@ -25,13 +25,31 @@ class Grt(OpBinaria):
     def eval(self):
         return str(self.left.eval > self.right.eval)
 
+    def __str__(self):
+        return str('>')
+
 class Lss(OpBinaria):
     def eval(self):
         return str(self.left.eval < self.right.eval)
 
+    def __str__(self):
+        return str('<')
+
 class Eq(OpBinaria):
     def eval(self):
         return str(self.left.eval == self.right.eval)
+
+    def __str__(self):
+        return str('=')
+
+class Condition():
+    def __init__(self, sel_col, op, string):
+        self.sel_col = sel_col
+        self.op = op
+        self.string = string
+
+    def __str__(self):
+        return str(str(self.sel_col) + " " + str(self.op) + " " + str(self.string))
 
 class Select():
 
@@ -45,7 +63,7 @@ class Select():
         self.box_y = box_y
 
     def eval(self):
-        return f'Selecionadas colunas {self.cols} de {self.origem}, onde {self.where} segue uma condicao, boxplot em x={self.box_x} e y={self.box_y}'
+        return f'Selecionadas colunas {self.cols} de {self.origem}, onde a condição é {self.where}, boxplot em x={self.box_x} e y={self.box_y}'
 
 class String():
     def __init__(self,value):
