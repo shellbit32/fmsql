@@ -13,9 +13,30 @@ class Parser():
         )
 
     def parse(self):
-        @self.pg.production('program : SELECT STR FROM STR WHERE STR GRT NUM BOXPLOT STR SEP STR')
+        #colocar + em sel_col depois pra ver se funciona
+        @self.pg.production('program : SELECT sel_col FROM origem')
+        def prog_sel_simples(p):
+            return 
+        @self.pg.production('program : SELECT sel_col FROM origem WHERE sel_col GRT NUM BOXPLOT box_x SEP box_y')
+        @self.pg.production('program : SELECT sel_col FROM origem WHERE STR GRT NUM')
         def program(p):
-            return print(str(p))
+            pass
+
+        @self.pg.production('sel_col : STR')
+        def sel_col(p):
+            return p[0]
+
+        @self.pg.production('origem : STR')
+        def origem(p):
+            return p[0]
+
+        @self.pg.production('box_x : STR')
+        def box_x(p):
+            return p[0]
+
+        @self.pg.production('box_y : STR')
+        def box_y(p):
+            return p[0]
 
         @self.pg.error
         def error_handle(token):
