@@ -27,7 +27,9 @@ class Grt(OpBinaria):
 
 class Select():
 
-    def __init__(self,*args, origem, where="teste", box_x="teste", box_y="teste"):
+    #Na versão v0.6 , pode tirar o * do args pra conseguir mostrar(só uma
+    #coluna) ao executar o main. Pra voltar a mostrar tupla, colocar o *
+    def __init__(self,args, origem, where="teste", box_x="teste", box_y="teste"):
         self.cols = args
         self.origem = origem
         self.where = where
@@ -35,7 +37,17 @@ class Select():
         self.box_y = box_y
 
     def eval(self):
-        return f'Selecionadas colunas {self.cols} de {self.origem}, onde {self.where} segue uma condicao, boxplot em {self.box_x,self.box_y}'
+        return f'Selecionadas colunas {self.cols} de {self.origem}, onde {self.where} segue uma condicao, boxplot em x={self.box_x} e y={self.box_y}'
+
+class String():
+    def __init__(self,value):
+        self.value = value
+    
+    def eval(self):
+        return str(self.value)
+
+    def __str__(self):
+        return str(self.value)
 
 #class From():
 #
@@ -63,3 +75,10 @@ class Select():
 #
 #    def eval(self):
 #        return ' fazer boxplot de x: ' + self.x + ' e y: ' + self.y
+
+#class Print():
+#    def __init__(self, value):
+#        self.value = value
+#
+#    def eval(self):
+#        print(self.value.eval())

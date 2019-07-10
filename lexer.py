@@ -29,7 +29,7 @@ class Lexer():
 
         #Strings alfanumericas
         self.lexer.add('STR',r'\w+')
-
+#
 #        #Col_select
 #        self.lexer.add('COL_SEL',r'\w+')
 #
