@@ -4,7 +4,7 @@
 ################################################################################
 
 from rply import ParserGenerator
-from ast import Num,Grt, Select, From, Where, Boxplot
+from ast import Num,Grt, Select
 
 class Parser():
     def __init__(self):
@@ -16,11 +16,15 @@ class Parser():
         #colocar + em sel_col depois pra ver se funciona
         @self.pg.production('program : SELECT sel_col FROM origem')
         def prog_sel_simples(p):
-            return 
+            return Select(p[1], origem=p[3])
+
+        @self.pg.production('program : SELECT sel_col FROM origem WHERE sel_col GRT NUM')
+        def prog_sel_where(p):
+            return Select(p[1], origem=p[3],where=p[5])
+
         @self.pg.production('program : SELECT sel_col FROM origem WHERE sel_col GRT NUM BOXPLOT box_x SEP box_y')
-        @self.pg.production('program : SELECT sel_col FROM origem WHERE STR GRT NUM')
-        def program(p):
-            pass
+        def prog_sel_where_box(p):
+            return Select(p[1],origem=p[3],where=p[5],box_x=p[9],box_y=p[11])
 
         @self.pg.production('sel_col : STR')
         def sel_col(p):

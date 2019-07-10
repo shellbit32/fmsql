@@ -27,35 +27,39 @@ class Grt(OpBinaria):
 
 class Select():
 
-    def __init__(self,*args):
+    def __init__(self,*args, origem, where="teste", box_x="teste", box_y="teste"):
         self.cols = args
-
-    def eval(self):
-        return 'Selecionadas colunas ' + str(self.cols)
-
-class From():
-
-    def __init__(self, origem):
         self.origem = origem
+        self.where = where
+        self.box_x = box_x
+        self.box_y = box_y
 
     def eval(self):
-        return 'da base ' + str(self.origem)
+        return f'Selecionadas colunas {self.cols} de {self.origem}, onde {self.where} segue uma condicao, boxplot em {self.box_x,self.box_y}'
 
-class Where():
+#class From():
+#
+#    def __init__(self, origem):
+#        self.origem = origem
+#
+#    def eval(self):
+#        return 'da base ' + str(self.origem)
 
-    def __init__(self, col, op, val):
-        self.col = col
-        self.op = op
-        self.val = val
+#class Where():
+#
+#    def __init__(self, col, op, val):
+#        self.col = col
+#        self.op = op
+#        self.val = val
+#
+#    def eval(self):
+#        return ' onde ' + self.col + self.op + ' ' + str(self.val)
 
-    def eval(self):
-        return ' onde ' + self.col + self.op + ' ' + str(self.val)
-
-class Boxplot():
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def eval(self):
-        return ' fazer boxplot de x: ' + self.x + ' e y: ' + self.y
+#class Boxplot():
+#
+#    def __init__(self, x, y):
+#        self.x = x
+#        self.y = y
+#
+#    def eval(self):
+#        return ' fazer boxplot de x: ' + self.x + ' e y: ' + self.y
