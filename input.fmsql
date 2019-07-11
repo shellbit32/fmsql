@@ -1,3 +1,13 @@
+#Nosso código em fmsql
+
 select col from base
-#where col = 50
-#boxplot col_x, col_y
+where col < 2
+boxplot col_x, col_y
+
+#Pode experimentar usando comentários de uma linha como este
+
+/*
+
+Ou comentários de multiplas linhas como este
+
+*/

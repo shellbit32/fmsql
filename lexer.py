@@ -58,8 +58,11 @@ class Lexer():
         self.lexer.ignore(r'\s+')
 
         #Ignorar comentários
-        #de uma linha
-        self.lexer.ignore('#(.)+\n')
+        #de uma linha (#)
+        self.lexer.ignore('#(.)*\n')
+
+        #de multiplas linhas (/* */)
+        self.lexer.ignore('/\*(?s).*\*/')
 
     def get_lexer(self):
         self._add_tokens()
