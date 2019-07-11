@@ -74,7 +74,12 @@ class Select():
         self.box_y = box_y
 
     def eval(self):
-        return f'Selecionadas colunas {self.cols} de {self.origem}, onde a condição é {self.where}, boxplot em x={self.box_x} e y={self.box_y}'
+        if (str(self.where) == 'null') and (str(self.box_x) == 'null') and (str(self.box_y) == 'null'):
+            return f'Selecionadas colunas {self.cols} de {self.origem}'
+        elif (str(self.box_x) == 'null') and (str(self.box_y) == 'null'):
+            return f'Selecionadas colunas {self.cols} de {self.origem}, onde a condição é {self.where}'
+        else:
+            return f'Selecionadas colunas {self.cols} de {self.origem}, onde a condição é {self.where}, boxplot em x={self.box_x} e y={self.box_y}'
 
 class String():
     def __init__(self,value):
