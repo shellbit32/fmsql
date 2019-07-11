@@ -51,11 +51,22 @@ class Condition():
     def __str__(self):
         return str(str(self.sel_col) + " " + str(self.op) + " " + str(self.string))
 
+#Provavelmente não precisa
+class Null():
+    def eval(self):
+        return self
+
+    def __str__(self):
+        return 'null'
+
+    def __repr__(self):
+        return 'Null()'
+
 class Select():
 
     #Na versão v0.6 , pode tirar o * do args pra conseguir mostrar(só uma
     #coluna) ao executar o main. Pra voltar a mostrar tupla, colocar o *
-    def __init__(self,args, origem, where="teste", box_x="teste", box_y="teste"):
+    def __init__(self,args, origem, where=Null(), box_x=Null(), box_y=Null()):
         self.cols = args
         self.origem = origem
         self.where = where
@@ -74,17 +85,6 @@ class String():
 
     def __str__(self):
         return str(self.value)
-
-#Provavelmente não precisa
-#class Null():
-#    def eval(self):
-#        return self
-#
-#    def __str__(self):
-#        return 'null'
-#
-#    def __repr__(self):
-#        return 'Null()'
 
 #class From():
 #
