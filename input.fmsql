@@ -1,3 +1,3 @@
 select col from base
-where col = 50
-boxplot col_x, col_y
+#where col = 50
+#boxplot col_x, col_y

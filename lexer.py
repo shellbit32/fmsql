@@ -55,7 +55,11 @@ class Lexer():
         self.lexer.add('NUM',r'\d')
 
         #Ignorar espaços em branco
-        self.lexer.ignore('\s+')
+        self.lexer.ignore(r'\s+')
+
+        #Ignorar comentários
+        #de uma linha
+        self.lexer.ignore('#(.)+\n')
 
     def get_lexer(self):
         self._add_tokens()
