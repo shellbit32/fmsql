@@ -18,6 +18,11 @@ class Parser():
     def parse(self):
         #colocar + em sel_col depois pra ver se funciona
         #não funciona colocar +, o que faz sentido já que não é coisa de GLC
+
+        #Não acho que tem suporte para produções vazias. Tem um "issue" no
+        #Github sobre isso e ninguém respondeu ainda. Usaria isso para fazer o
+        #select poder receber vários argumentos
+
         @self.pg.production('program : SELECT sel_col FROM origem')
         def prog_sel_simples(p):
             return Select(p[1], origem=p[3])

@@ -68,12 +68,23 @@ class Select():
 class String():
     def __init__(self,value):
         self.value = value
-    
+
     def eval(self):
         return str(self.value)
 
     def __str__(self):
         return str(self.value)
+
+#Provavelmente não precisa
+#class Null():
+#    def eval(self):
+#        return self
+#
+#    def __str__(self):
+#        return 'null'
+#
+#    def __repr__(self):
+#        return 'Null()'
 
 #class From():
 #

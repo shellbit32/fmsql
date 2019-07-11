@@ -8,11 +8,8 @@
 from lexer import Lexer
 from parser import Parser
 
-text_input = """
-select col from base
-where col < 2
-boxplot col_x, col_y
-"""
+f = open('input.fmsql','r')
+text_input = f.read()
 
 lexer = Lexer().get_lexer()
 tokens = lexer.lex(text_input)
